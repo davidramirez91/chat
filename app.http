@@ -1,0 +1,24 @@
+###
+GET http://localhost:3000/api/usuarios
+
+
+###
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+ {
+    "Usuario": "Ibeth",
+    "Contrasena": "Ecuador",
+    "Correo": "Iibe.olmos@gmail.com",
+    "Nivel_acceso": 1
+  }
+
+###
+GET http://localhost:3000/api_est/estudiantes
+
+###
+PUT http://localhost:3000/api_est/estudiantes/2
+x-api-key: tola_q_hace
+
+###  MongoDB
+POST http://localhost:3000/mongo

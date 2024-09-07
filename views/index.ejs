@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="css/estilo.css" />
+
+    <script type="module">
+      //  OBJETOS //
+      import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
+      const socket = io();
+
+      const chat = document.getElementById("id_chat");
+      const login = document.getElementById("id_login");
+      const usrs = document.getElementById("id_item_usr");
+
+      // chat
+      const form = document.getElementById("id_form");
+      const input = document.getElementById("id_input");
+      const mensaje = document.getElementById("id_mensaje");
+
+      ////
+      // envio infor Usuario
+      socket.emit();
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>EINSPHI</h1>
+    </header>
+
+    <main>
+      <!-- Cargar dinámicamente login.ejs o mensajeria.ejs -->
+      <% if (login === true) { %> <%- include('mensajeria'); %>
+      <p>Usuario: <%= username %></p>
+      <% } else { %> <%- include('login'); %> <% } %>
+    </main>
+
+    <footer>
+      <p>Pie de página</p>
+    </footer>
+  </body>
+</html>

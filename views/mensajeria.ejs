@@ -1,0 +1,36 @@
+<h2>`Bienvenido <%= username %>`</h2>
+<div class="mensajeria" id="id_mensajeria">
+  <div class="chat" id="id_chat">
+    <ul id="id_mensaje"></ul>
+
+    <form id="id_form">
+      <input
+        type="text"
+        name="message"
+        id="id_input"
+        placeholder="Escribe un mensaje"
+        autocomplete="off"
+      />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <div class="usuarios_conectados" id="id_usuarios_conectados">
+    <ul id="id_item_usr"></ul>
+  </div>
+</div>
+
+<script type="module">
+  //  OBJETOS //
+  import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
+  const socket = io();
+
+  const chat = document.getElementById("id_chat");
+  // chat
+  const form = document.getElementById("id_form");
+  const input = document.getElementById("id_input");
+  const mensaje = document.getElementById("id_mensaje");
+
+  ////
+  // envio infor Usuario
+  socket.emit("unirRoom", { username: `<%= username %>`, room: "vemos" });
+</script>
