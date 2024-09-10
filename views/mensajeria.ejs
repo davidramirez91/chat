@@ -2,7 +2,6 @@
 <div class="mensajeria" id="id_mensajeria">
   <div class="chat" id="id_chat">
     <ul id="id_mensaje"></ul>
-
     <form id="id_form">
       <input
         type="text"
@@ -14,6 +13,7 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
+
   <div class="usuarios_conectados" id="id_usuarios_conectados">
     <ul id="id_item_usr"></ul>
   </div>
@@ -32,5 +32,33 @@
 
   ////
   // envio infor Usuario
-  socket.emit("unirRoom", { username: `<%= username %>`, room: "vemos" });
+  socket.emit("unirRoom", { username: `<%= username %>`, room: `<%= room %>` });
 </script>
+
+<style>
+  /* mensajeria */
+  .mensajeria {
+    display: flex;
+  }
+  .chat {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 450px;
+    height: 500px;
+    position: relative;
+    display: block;
+  }
+
+  #id_mensaje {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  #id_mensaje > li {
+    padding: 0.5rem 1rem;
+  }
+  #id_mensaje > li:nth-child(odd) {
+    background: #000;
+  }
+</style>

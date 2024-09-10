@@ -1,21 +1,35 @@
 <div class="login" id="id_login">
   <form id="id_form_login" action="/login" method="POST">
-    <input
-      type="text"
-      name="username_input"
-      id="id_username"
-      placeholder="Ussername"
-      autocomplete="off"
-      required
-    />
-    <input
-      type="password"
-      name="password_input"
-      id="id_password"
-      placeholder="Passwrod"
-      autocomplete="off"
-      required
-    />
-    <button type="submit">Login</button>
+    <div class="datos_usuario">
+      <input
+        type="text"
+        name="username_input"
+        id="id_username"
+        placeholder="Ussername"
+        autocomplete="off"
+        required
+      />
+      <input
+        type="password"
+        name="password_input"
+        id="id_password"
+        placeholder="Passwrod"
+        autocomplete="off"
+        required
+      />
+    </div>
+
+    <div class="form-control">
+      <label for="room">Room</label>
+      <select name="room" id="room">
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="PHP">PHP</option>
+        <option value="C#">C#</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Java">Java</option>
+      </select>
+      <button type="submit">Login</button>
+    </div>
   </form>
 </div>

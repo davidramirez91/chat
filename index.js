@@ -14,7 +14,7 @@ const app = express();
 const server = createServer(app); // crea servidor WEBSOCKET
 
 export const io = new Server(server, {
-  connectionStateRecovery: {}, // guarda informacio por desconeccion en un tiempo
+  connectionStateRecovery: {}, // guarda informacio por desconeccion
 });
 
 const PORT = process.env.PORT ?? 3000;
@@ -36,11 +36,15 @@ app.use("/api", rutas_usuarios);
 // RUTAS
 app.use("/", rutas);
 app.post("/login", async (req, res) => {
-  const { username_input, password_input } = req.body; // Desestructuración de req.body
+  const { username_input, password_input, room } = req.body; // Desestructuración de req.body
   try {
     const usuario = await usuarioModel.getByName(username_input);
     if (usuario.Contrasena === password_input) {
-      res.redirect(`/?username=${encodeURIComponent(username_input)}`);
+      res.redirect(
+        `/?username=${encodeURIComponent(
+          username_input
+        )}&room=${encodeURIComponent(room)}`
+      );
     } else {
       console.log("mal contraseña");
       res.redirect("/");

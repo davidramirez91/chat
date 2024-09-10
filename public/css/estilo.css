@@ -10,12 +10,20 @@
   color-scheme: light dark;
 }
 
+/* formulario */
+form {
+  display: block;
+  padding: 10px;
+  position: relative;
+  background-color: #000;
+}
+
 input {
   border-radius: 9999px;
   border: 1px solid #eee;
-  flex: 1;
   margin: 4px;
   padding: 0 8px;
+  height: 30px;
 }
 
 input:focus {
@@ -27,8 +35,7 @@ ul {
   list-style: none;
   display: block;
   margin-left: 2px;
-  width: 200px;
-  
+  width: 200px;  
 }
 li {
   margin: 10px;
@@ -58,23 +65,13 @@ button {
   margin: 4px;
   border-radius: 4px;
   width: 100px;
+  height: 30px;
 }
 
 button:hover,
 button:focus {
   background: #0cf;
   transform: translateY(-2px); /* Da el efecto de elevarse al pasar el mouse */
-}
-
-/* formulario */
-form {
-  bottom: 0;
-  display: flex;
-  height: 48px;
-  left: 0;
-  padding: 4px;
-  position: absolute;
-  right: 0;
 }
 
 /* CUERPO */
@@ -89,11 +86,20 @@ body {
   /* grid-template-rows: 2fr; */
 }
 
-/* ----------- */
-/* login */
-#id_form_login {
-  position: relative;
+/* Selector */
+
+select {
+  height: 25px;
+  margin: 10px;
 }
+
+/* ----------- */
+
+/* formulario */
+#id_form_login {
+  height: 200px;
+}
+
 .login {
   width: 550px;
   position: relative;
@@ -101,41 +107,3 @@ body {
 .login_hidden {
   display: none;
 }
-
-/* mensajeria */
-
-.mensajeria {
-  display: flex;
-}
-
-.chat {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  width: 450px;
-  height: 500px;
-  position: relative;
-  display: block;
-}
-/*
-.chat {
-  display: none;
-}
-  */
-
-#id_mensaje {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-#id_mensaje > li {
-  padding: 0.5rem 1rem;
-}
-#id_mensaje > li:nth-child(odd) {
-  background: #000;
-}
-
-
-
-
-
