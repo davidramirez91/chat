@@ -10,19 +10,6 @@
       //  OBJETOS //
       import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
       const socket = io();
-
-      const chat = document.getElementById("id_chat");
-      const login = document.getElementById("id_login");
-      const usrs = document.getElementById("id_item_usr");
-
-      // chat
-      const form = document.getElementById("id_form");
-      const input = document.getElementById("id_input");
-      const mensaje = document.getElementById("id_mensaje");
-
-      ////
-      // envio infor Usuario
-      socket.emit();
     </script>
   </head>
 
@@ -35,6 +22,7 @@
       <!-- Cargar dinámicamente login.ejs o mensajeria.ejs -->
       <% if (login === true) { %> <%- include('mensajeria'); %>
       <p>Usuario: <%= username %></p>
+      <p>Room: <%= room %></p>
       <% } else { %> <%- include('login'); %> <% } %>
     </main>
 

@@ -9,6 +9,7 @@ import { rutas } from "./routes/io_rutas.js";
 import { rutas_estudiantes } from "./routes/estudiantes_rutas.js";
 import { ioModel } from "./models/io_models.js";
 import { usuarioModel } from "./models/usuarios_models.js";
+import { loginControl } from "./controllers/login_control.js";
 
 const app = express();
 const server = createServer(app); // crea servidor WEBSOCKET
@@ -22,7 +23,7 @@ dotenv.config();
 
 app.use(cors()); // orígenes permitidos (CORS)
 app.use(json()); // req.body
-app.use(express.urlencoded({ extended: true })); // datos de formularios
+app.use(express.urlencoded({ extended: true })); // datos de formularios req.body
 app.use(express.static("public"));
 app.disable("x-powered-by");
 
@@ -35,25 +36,7 @@ app.use("/api", rutas_usuarios);
 
 // RUTAS
 app.use("/", rutas);
-app.post("/login", async (req, res) => {
-  const { username_input, password_input, room } = req.body; // Desestructuración de req.body
-  try {
-    const usuario = await usuarioModel.getByName(username_input);
-    if (usuario.Contrasena === password_input) {
-      res.redirect(
-        `/?username=${encodeURIComponent(
-          username_input
-        )}&room=${encodeURIComponent(room)}`
-      );
-    } else {
-      console.log("mal contraseña");
-      res.redirect("/");
-    }
-  } catch (error) {
-    console.log("Error en el login:", error);
-    res.redirect("/?login_info=No");
-  }
-});
+app.post("/login", loginControl.logiar);
 app.use("/api_est", rutas_estudiantes);
 
 io.on("connection", async (socket) => {
